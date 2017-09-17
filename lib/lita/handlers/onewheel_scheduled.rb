@@ -8,10 +8,11 @@ module Lita
       @x = false
 
       def start(response)
-        every(1) do |timer|
-          response.reply('This is your 1 second reminder!')
+        every(5) do |timer|
           Lita.logger.debug "Timer running, X = #{x}"
+          puts "Timer running, X = #{x}"
           timer.stop if x
+          response.reply('This is your 5 second reminder!')
         end
       end
 
