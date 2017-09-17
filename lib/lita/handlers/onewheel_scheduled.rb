@@ -8,6 +8,7 @@ module Lita
       @x = false
 
       def start(response)
+        Lita.logger.debug "Starting timer!"
         every(5) do |timer|
           Lita.logger.debug "Timer running, X = #{x}"
           puts "Timer running, X = #{x}"
@@ -17,7 +18,7 @@ module Lita
       end
 
       def end(response)
-        self.x = true
+        x = true
         Lita.logger.debug "Timer stopping, X = #{x}"
         response.reply 'Timer stopped.'
       end
